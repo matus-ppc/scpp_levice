@@ -1,0 +1,27 @@
+.schools-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .schools-grid {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: var(--spacing-xxl);
+  }
+}
+
+
+.schools-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.schools-image {
+  width: 100%;
+  max-width: 450px;
+  height: auto;
+  object-fit: contain;
+}

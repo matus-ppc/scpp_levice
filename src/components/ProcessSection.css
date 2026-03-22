@@ -1,0 +1,134 @@
+.process-section {
+  padding: calc(var(--spacing-section) * 1) 0;
+  background-color: var(--color-background);
+  position: relative;
+}
+
+.process-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxl);
+  margin-top: calc(var(--spacing-xxl) + 20px);
+  position: relative;
+}
+
+/* Playful dashed path connecting the steps */
+.timeline-path {
+  display: none;
+  position: absolute;
+  top: 80px;
+  left: 15%;
+  right: 15%;
+  height: 4px;
+  border-top: 6px dotted var(--color-pink);
+  z-index: 0;
+  opacity: 0.6;
+}
+
+@media (min-width: 900px) {
+  .process-timeline {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: var(--spacing-xl);
+  }
+  .timeline-path {
+    display: block; /* Show the path on desktop */
+  }
+}
+
+.process-step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Playful, heavily rounded cards */
+.step-card {
+  background-color: var(--color-secondary);
+  border-radius: 40px; /* Very soft and child-friendly */
+  padding: var(--spacing-xxl) var(--spacing-lg) var(--spacing-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  text-align: center;
+  width: 100%;
+  max-width: 340px;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy hover */
+  border: 4px solid var(--color-white); /* Thicker white outline creates a sticker effect */
+}
+
+.step-card:hover {
+  transform: translateY(-10px) rotate(2deg); /* Playful tilt on hover */
+}
+
+/* Cute number badges */
+.step-number {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-pink);
+  color: var(--color-white);
+  font-family: var(--font-family-headings);
+  font-weight: 800;
+  font-size: 2rem;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(248, 180, 225, 0.4); /* Pink glow */
+  border: 4px solid var(--color-white);
+  z-index: 2;
+}
+
+/* Differentiate steps by color for fun */
+.process-step:nth-child(2) .step-number {
+  background-color: var(--color-primary);
+  box-shadow: 0 8px 16px rgba(0, 166, 81, 0.3);
+}
+
+.process-step:nth-child(3) .step-number {
+  background-color: #FFB347; /* Warm playful orange */
+  box-shadow: 0 8px 16px rgba(255, 179, 71, 0.3);
+}
+
+.step-icon {
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-white);
+  color: var(--color-text);
+  border-radius: 30px; /* Squircle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--spacing-md);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.process-step:nth-child(1) .step-icon { color: var(--color-pink); }
+.process-step:nth-child(2) .step-icon { color: var(--color-primary); }
+.process-step:nth-child(3) .step-icon { color: #FFB347; }
+
+.step-title {
+  font-size: 1.4rem;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  z-index: 1;
+  color: var(--color-text);
+}
+
+.step-desc {
+  color: var(--color-text);
+  opacity: 0.85;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
