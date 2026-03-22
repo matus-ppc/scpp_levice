@@ -26,16 +26,14 @@ const CookieConsent = () => {
   }, []);
 
   const applyConsent = (prefs) => {
-    // This is where you would activate/deactivate scripts
-    console.log('Applying cookie preferences:', prefs);
+    // SEM VLOŽTE SVOJE SKRIPTY (Google Analytics, Pixely atď.)
+    console.log('Uplatňujem predvoľby cookies:', prefs);
     
     if (prefs.analytics) {
-      // Example: Load Google Analytics
-      // loadGoogleAnalytics('YOUR_GA_ID_HERE');
-    }
-    
-    if (prefs.marketing) {
-      // Example: Load Marketing Pixels
+      // PRÍKLAD: Aktivácia Google Analytics
+      // if (typeof window.gtag === 'function') {
+      //   window.gtag('consent', 'update', { 'analytics_storage': 'granted' });
+      // }
     }
   };
 
@@ -73,33 +71,36 @@ const CookieConsent = () => {
     <>
       <AnimatePresence>
         {isVisible && !showSettings && (
-          <motion.div 
-            className="cookie-consent-bar modern-light"
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: 100, opacity: 0 }}
-          >
-            <div className="cookie-content">
-              <div className="cookie-text">
-                <h3>Súbory cookies 🍪</h3>
-                <p>
-                  Tento web používa súbory cookies pre lepšiu skúsenosť, analýzu návštevnosti a personalizáciu reklám. 
-                  Niektoré sú nevyhnutné pre fungovanie stránky.
-                </p>
+          <div className="cookie-consent-wrapper">
+            <motion.div 
+              className="cookie-consent-bar modern-light"
+              initial={{ y: 100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 100, opacity: 0 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <div className="cookie-content">
+                <div className="cookie-text">
+                  <h3>Súbory cookies 🍪</h3>
+                  <p>
+                    Tento web používa súbory cookies pre lepšiu skúsenosť, analýzu návštevnosti a personalizáciu reklám. 
+                    Niektoré sú nevyhnutné pre fungovanie stránky.
+                  </p>
+                </div>
+                <div className="cookie-actions">
+                  <button className="btn btn-outline-dark" onClick={() => setShowSettings(true)}>
+                    Nastavenia
+                  </button>
+                  <button className="btn btn-secondary" onClick={handleDeclineAll}>
+                    Odmietnuť všetky
+                  </button>
+                  <button className="btn btn-primary" onClick={handleAcceptAll}>
+                    Prijať všetky
+                  </button>
+                </div>
               </div>
-              <div className="cookie-actions">
-                <button className="btn btn-outline-dark" onClick={() => setShowSettings(true)}>
-                  Nastavenia
-                </button>
-                <button className="btn btn-secondary" onClick={handleDeclineAll}>
-                  Odmietnuť všetky
-                </button>
-                <button className="btn btn-primary" onClick={handleAcceptAll}>
-                  Prijať všetky
-                </button>
-              </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
