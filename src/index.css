@@ -118,6 +118,56 @@ a:hover {
   padding-bottom: calc(var(--spacing-section) + 80px);
 }
 
+/* Decorative Page Headers for Subpages */
+.page-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.page-header::before,
+.page-header::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(60px);
+  opacity: 0.6;
+}
+
+.page-header::before {
+  width: clamp(200px, 40vw, 400px);
+  height: clamp(200px, 40vw, 400px);
+  background-color: var(--color-pink);
+  top: -20%;
+  left: -10%;
+  animation: pageBlobFloat 14s ease-in-out infinite alternate;
+}
+
+.page-header::after {
+  width: clamp(300px, 50vw, 500px);
+  height: clamp(300px, 50vw, 500px);
+  background-color: #d1f2e0; /* light green */
+  bottom: -30%;
+  right: -10%;
+  animation: pageBlobFloat 18s ease-in-out infinite alternate-reverse;
+}
+
+/* Adjust blobs for primary (green) background to be highly visible and cheerful */
+.page-header.bg-primary::before { background-color: #FFD166; opacity: 0.8; } /* Bright yellow */
+.page-header.bg-primary::after { background-color: #4ECDC4; opacity: 0.8; } /* Bright light blue */
+
+.page-header .container {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes pageBlobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-20px, 30px) scale(0.9); }
+}
+
 .bg-secondary {
   background-color: var(--color-secondary);
 }

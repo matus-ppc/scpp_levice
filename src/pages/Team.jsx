@@ -3,7 +3,7 @@ import TeamCardsSection from '../components/TeamCardsSection';
 function Team() {
   return (
     <div className="page-wrapper">
-      <section className="bg-secondary section">
+      <section className="page-header bg-secondary section">
         <div className="container text-center" style={{ maxWidth: '800px' }}>
           <h1>Spoznajte náš tím</h1>
           <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>

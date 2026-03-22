@@ -7,7 +7,7 @@ import './Schools.css';
 function Schools() {
   return (
     <div className="page-wrapper">
-      <section className="bg-secondary section" style={{ paddingBottom: 'calc(var(--spacing-section) * 1.5)' }}>
+      <section className="page-header bg-secondary section" style={{ paddingBottom: 'calc(var(--spacing-section) * 1.5)' }}>
         <div className="container text-center" style={{ maxWidth: '800px' }}>
           <h1>Spolupráca so školami</h1>
           <p style={{ fontSize: '1.2rem', opacity: 0.8 }}>

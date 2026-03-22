@@ -5,7 +5,7 @@ import './About.css';
 function About() {
   return (
     <div className="page-wrapper">
-      <section className="bg-secondary section">
+      <section className="page-header bg-secondary section">
         <div className="container text-center" style={{ maxWidth: '800px' }}>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
